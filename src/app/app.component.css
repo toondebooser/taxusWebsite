@@ -1,0 +1,67 @@
+header {
+  height: max-content;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align the logo vertically */
+}
+nav {
+  width: 100vw;
+  margin: 10px 0px 0px 0px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+.navButton {
+  margin: 0px 10px;
+}
+main {
+  height: calc(100vh - 161.74px);
+  overflow-y: auto;
+}
+footer {
+  height: 55.2px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+}
+.contactWrap {
+  display: flex;
+}
+.taxusLogo {
+  height: auto;
+  margin: 10px;
+}
+.envelope {
+  color: black;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+@media (max-width: 340px) {
+  img {
+    width: 70px;
+  }
+  nav {
+    margin-top: 0px;
+  }
+  a {
+    font-size: 12px;
+  }
+}
+
+/* @media (max-height: 620px) {
+  main {
+    height: 65vh;
+  }
+  footer {
+    height: 10vh;
+  }
+} */
