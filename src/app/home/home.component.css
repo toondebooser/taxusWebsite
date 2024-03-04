@@ -1,5 +1,5 @@
 .card {
-  width: 200px;
+  width: 300px;
   border-radius: 20px;
   border-bottom: 1px solid grey;
 }
@@ -8,6 +8,7 @@
   width: 100%;
 }
 .desc {
+  font-weight: 400;
   text-align: center;
   margin: 10px 0px;
 }
@@ -16,4 +17,18 @@
   font-family: "Caveat", cursive;
   margin: 20px 0px 10px 0px;
   text-align: center;
+}
+@media (max-width: 450px) {
+  .card {
+    width: 200px;
+  }
+}
+@media (min-width: 450px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+  }
 }

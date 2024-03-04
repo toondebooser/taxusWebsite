@@ -5,7 +5,7 @@ header {
 .logoWrapper {
   display: flex;
   justify-content: center;
-  align-items: center; /* Align the logo vertically */
+  align-items: center;
 }
 nav {
   width: 100vw;
@@ -54,7 +54,6 @@ footer {
   color: black;
   margin-right: 10px;
 }
-
 
 @media (max-width: 340px) {
   main {
