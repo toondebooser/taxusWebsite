@@ -23,12 +23,9 @@
     width: 200px;
   }
 }
-@media (min-width: 450px) {
+
+@media (min-width: 800px) {
   .content {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    justify-items: center;
-    gap: 20px;
   }
 }
