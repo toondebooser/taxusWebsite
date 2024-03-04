@@ -15,11 +15,25 @@ nav {
   justify-content: center;
   border-bottom: 1px solid black;
 }
+
+.homeIcon {
+  width: 20px;
+}
 .navButton {
   margin: 0px 10px;
 }
+.navButton:hover {
+  border-top: 1px solid black;
+  margin-top: -0.7px;
+}
+
+.active {
+  border-top: 1px solid black;
+  margin-top: -0.7px;
+}
 main {
-  height: calc(100vh - 161.74px);
+  margin: 0px 5px;
+  height: calc(100vh - 164.54px);
   overflow-y: auto;
 }
 footer {
@@ -41,13 +55,16 @@ footer {
   margin-right: 10px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 @media (max-width: 340px) {
+  main {
+    height: calc(100vh - 135.38px);
+  }
   img {
     width: 70px;
+  }
+  .homeIcon {
+    width: 15px;
   }
   nav {
     margin-top: 0px;
@@ -56,12 +73,3 @@ a {
     font-size: 12px;
   }
 }
-
-/* @media (max-height: 620px) {
-  main {
-    height: 65vh;
-  }
-  footer {
-    height: 10vh;
-  }
-} */

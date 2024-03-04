@@ -1,5 +1,34 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
+import { AtelierComponent } from "./atelier/atelier.component";
+import { VellenComponent } from "./vellen/vellen.component";
+import { SnoeienComponent } from "./snoeien/snoeien.component";
+import { ContactComponent } from "./contact/contact.component";
 
 export const routes: Routes = [
-    
+  {
+    path: "",
+    component: HomeComponent,
+    title: "Home",
+  },
+  {
+    path: "atelier",
+    component: AtelierComponent,
+    title: "Atelier",
+  },
+  {
+    path: "vellen",
+    component: VellenComponent,
+    title: "Vellen",
+  },
+  {
+    path: "snoeien",
+    component: SnoeienComponent,
+    title: "Snoeien",
+  },
+  {
+    path: "contact",
+    component: ContactComponent,
+    title: "Contact",
+  },
 ];

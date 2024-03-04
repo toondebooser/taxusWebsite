@@ -1,13 +1,17 @@
-import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { Component, OnDestroy, OnInit, inject } from "@angular/core";
+import { RouterLink, RouterOutlet, Router, RouterLinkActive  } from "@angular/router";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class AppComponent {
-  title = "Taxus";
+export class AppComponent{
+
+     
+  
+  
 }

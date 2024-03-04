@@ -1,0 +1,19 @@
+.card {
+  width: 200px;
+  border-radius: 20px;
+  border-bottom: 1px solid grey;
+}
+.homePictures {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+}
+.desc {
+  text-align: center;
+  margin: 10px 0px;
+}
+.homeHeader {
+  font-size: x-large;
+  font-family: "Caveat", cursive;
+  margin: 20px 0px 10px 0px;
+  text-align: center;
+}
