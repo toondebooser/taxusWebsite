@@ -1,5 +1,5 @@
 .card {
-  width: 300px;
+  width: 250px;
   border-radius: 20px;
   border-bottom: 1px solid grey;
 }
@@ -7,17 +7,15 @@
   border-radius: 20px 20px 0px 0px;
   width: 100%;
 }
+.desktopLogo {
+  display: none;
+}
 .desc {
   font-weight: 400;
   text-align: center;
   margin: 10px 0px;
 }
-.homeHeader {
-  font-size: x-large;
-  font-family: "Caveat", cursive;
-  margin: 20px 0px 10px 0px;
-  text-align: center;
-}
+
 @media (max-width: 450px) {
   .card {
     width: 200px;
@@ -26,6 +24,21 @@
 
 @media (min-width: 800px) {
   .content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    height: 70%;
+  }
+  .homeHeader {
+    grid-column: 1/4;
+    font-size: xx-large;
+  }
+  #snoeienCard {
+    justify-self: end;
+  }
+  #atelierCard {
+    grid-column: 3/4;
+    justify-self: start;
+  }
+  #vellenCard {
+    grid-column: 2/3;
   }
 }

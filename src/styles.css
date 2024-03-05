@@ -18,4 +18,52 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
+.pageHeader {
+  font-size: x-large;
+  font-family: "Caveat", cursive;
+  margin: 20px 0px 10px 0px;
+  text-align: center;
+}
+.alertText {
+  margin: 10px;
+}
+.accept {
+  font-size: x-small;
+  width: 80px;
+  height: 20px;
+  margin-bottom: 10px;
+  justify-self: center;
+  align-self: end;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+.accept:hover {
+  cursor: pointer;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+.cookieAlert {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr;
+  color: white;
+  position: absolute;
+  bottom: 35%;
+  height: 30%;
+  left: 25%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+@media (min-width: 800px) {
+  .alertText {
+    font-size: larger;
+    margin: 10px 50px;
+  }
+  .accept {
+    font-size: medium;
+    width: 100px;
+    height: 30px;
+  }
+}

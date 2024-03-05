@@ -28,6 +28,17 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+@if(consentService.consentSig() == false){
+<div class="cookieAlert">
+  <p class="alertText">Mijn excuses voor dit vervelende scherm maar net zoals elke website ben ik ook verplicht u te vragen of u cookies accepteerd</p>
+  <button
+    class="accept"
+    (click)="this.cookieConsentService.setConsent('consent', true, 1)"
+  >
+    Accepteren
+  </button>
+</div>
+}
 <footer>
   <div class="contactWrap">
     <a href="mailto:taxus.work@gmail.com" class="envelope"
