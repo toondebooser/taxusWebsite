@@ -8,9 +8,10 @@ header {
   align-items: center;
 }
 nav {
+  background-color: black;
+  color: white;
   width: 100vw;
-  margin: 10px 0px 0px 0px;
-  padding-bottom: 10px;
+  padding: 10px 0px 10px 0px;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid black;
@@ -21,19 +22,20 @@ nav {
 }
 .navButton {
   margin: 0px 10px;
+  font-family: "Caveat", cursive;
+  font-size: Larger;
 }
 .navButton:hover {
-  border-top: 1px solid black;
+  border-top: 1px solid white;
   margin-top: -0.7px;
 }
 
 .active {
-  border-top: 1px solid black;
+  border-top: 1px solid white;
   margin-top: -0.7px;
 }
 main {
-  margin: 0px 5px;
-  height: calc(100vh - 164.54px);
+  height: calc(100vh - 164.82px);
   overflow-y: auto;
 }
 footer {
@@ -41,7 +43,8 @@ footer {
   display: grid;
   justify-items: center;
   align-items: center;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 .contactWrap {
   display: flex;
@@ -51,13 +54,16 @@ footer {
   margin: 10px;
 }
 .envelope {
-  color: black;
-  margin-right: 10px;
+  margin-right: 100px;
 }
-
+@media (max-width: 450px) {
+  .envelope {
+    margin-right: 20px;
+  }
+}
 @media (max-width: 340px) {
   main {
-    height: calc(100vh - 135.38px);
+    height: calc(100vh - 143.28px);
   }
   img {
     width: 70px;
@@ -70,5 +76,8 @@ footer {
   }
   a {
     font-size: 12px;
+  }
+  .navButton {
+    font-size: medium;
   }
 }

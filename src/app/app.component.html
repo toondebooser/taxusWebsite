@@ -9,7 +9,7 @@
   </div>
   <nav>
     <a routerLink=""
-      ><img class="homeIcon" src="assets/icons/Home-icon.svg.png" alt="Home"
+      ><img class="homeIcon" src="assets/icons/Untitled-3.png" alt="Home"
     /></a>
     <a routerLinkActive="active" class="navButton" routerLink="vellen"
       >Vellen</a
@@ -30,7 +30,10 @@
 </main>
 @if(consentService.consentSig() == false){
 <div class="cookieAlert">
-  <p class="alertText">Mijn excuses voor dit vervelende scherm maar net zoals elke website ben ik ook verplicht u te vragen of u cookies accepteerd</p>
+  <p class="alertText">
+    Mijn excuses voor dit vervelende scherm maar net zoals elke website ben ik
+    ook verplicht u te vragen of u cookies accepteerd
+  </p>
   <button
     class="accept"
     (click)="this.cookieConsentService.setConsent('consent', true, 1)"
@@ -42,8 +45,8 @@
 <footer>
   <div class="contactWrap">
     <a href="mailto:taxus.work@gmail.com" class="envelope"
-      >&#9993; taxus.work&#64;gmail.com</a
-    >
-    <a href="tel:+32478579510">&#9990; +32478579510</a>
+      >&#9993; taxus.work&#64;gmail.com
+    </a>
+    <a href="tel:+32478579510">&#9990;+32478579510</a>
   </div>
 </footer>

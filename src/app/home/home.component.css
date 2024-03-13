@@ -2,6 +2,10 @@
   width: 250px;
   border-radius: 20px;
   border-bottom: 1px solid grey;
+  background-color: white;
+}
+.navButton {
+  font-family: "Caveat", cursive;
 }
 .homePictures {
   border-radius: 20px 20px 0px 0px;
@@ -10,8 +14,11 @@
 .desktopLogo {
   display: none;
 }
+
 .desc {
-  font-weight: 400;
+  font-family: "Caveat", cursive;
+  font-size: larger;
+  font-weight: 300;
   text-align: center;
   margin: 10px 0px;
 }
@@ -25,9 +32,9 @@
 @media (min-width: 800px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
-    height: 70%;
+    height: 100%;
   }
-  .homeHeader {
+  .pageHeader {
     grid-column: 1/4;
     font-size: xx-large;
   }

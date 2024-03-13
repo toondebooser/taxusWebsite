@@ -4,15 +4,29 @@ body {
     "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Open Sans", "Helvetica Neue", sans-serif;
   height: 100vh;
-  margin: 0;
+  margin: 0px;
   font-weight: 300;
 }
 .content {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
   justify-items: center;
   gap: 20px;
+  background-color: white;
+}
+.whiteSpace {
+  height: 50px;
+  width: 100%;
+}
+.contentSection {
+  color: black;
+  display: grid;
+  gap: 10px;
+  width: 85%;
+  padding-bottom: 50px;
+  border-radius: 20px;
 }
 a {
   text-decoration: none;
@@ -38,6 +52,28 @@ a {
   border: none;
   border-radius: 10px;
 }
+.pictures {
+  width: 100%;
+  justify-self: center;
+}
+.servicePic {
+  border-radius: 10px;
+  width: 100%;
+}
+hr {
+  width: 80%;
+}
+.serviceTitle {
+  font-weight: 600;
+  font-size: x-large;
+}
+.vet {
+  justify-self: start;
+  font-weight: 500;
+}
+/* .description {
+} */
+
 .accept:hover {
   cursor: pointer;
   background-color: black;
@@ -61,9 +97,17 @@ a {
     font-size: larger;
     margin: 10px 50px;
   }
+  .pageHeader {
+    font-size: xx-large;
+  }
   .accept {
     font-size: medium;
     width: 100px;
     height: 30px;
+  }
+  .contentSection {
+    font-size: larger;
+    grid-template-columns: repeat(2, 1fr);
+    border: none;
   }
 }
