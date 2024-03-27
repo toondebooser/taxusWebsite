@@ -1,9 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+// import { Injectable, signal } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ConsentService {
-  consentSig = signal<boolean>(false);
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class ConsentService {
+//   consentSig = signal<boolean>(false);
 
-}
+// }

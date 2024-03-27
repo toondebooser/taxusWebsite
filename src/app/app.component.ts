@@ -1,9 +1,9 @@
+// import { setCookie, getCookie } from "./cookieConsent";
+// import { CookieConsentService } from "./cookie-consent.service";
+// import { ConsentService } from "./consent.service";
 import { Component, OnDestroy, OnInit, inject } from "@angular/core";
-import { setCookie, getCookie } from "./cookieConsent";
 import { RouterLink, RouterOutlet, RouterLinkActive } from "@angular/router";
-import { CookieConsentService } from "./cookie-consent.service";
 import { Subscription } from "rxjs";
-import { ConsentService } from "./consent.service";
 
 @Component({
   selector: "app-root",
@@ -12,23 +12,18 @@ import { ConsentService } from "./consent.service";
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class AppComponent implements OnInit, OnDestroy {
-  cookieConsentService = inject(CookieConsentService);
-  consentService = inject(ConsentService);
-  serviceSubscription: Subscription | undefined;
+export class AppComponent implements OnInit {
+  // cookieConsentService = inject(CookieConsentService);
+  // consentService = inject(ConsentService);
+  // serviceSubscription: Subscription | undefined;
 
   ngOnInit(): void {
-    this.serviceSubscription = this.cookieConsentService
-      .consentChanged()
-      .subscribe((state) => {
-        console.log(state);
+    // this.serviceSubscription = this.cookieConsentService
+    //   .consentChanged()
+    //   .subscribe((state) => {
+    //     console.log(state);
 
-        this.consentService.consentSig.set(state);
-      });
-    this.cookieConsentService.checkConsent();
-  }
-
-  ngOnDestroy(): void {
-    if (this.serviceSubscription) this.serviceSubscription.unsubscribe;
-  }
-}
+    //     this.consentService.consentSig.set(state);
+    //   });
+    // this.cookieConsentService.checkConsent();
+  }}
