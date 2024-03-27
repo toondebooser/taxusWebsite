@@ -1,3 +1,9 @@
 <span class="content">
-  <p class="pageHeader">Contact page</p>
+  <div class="pageHeader">Contact page</div>
+  <div class="contentSection">
+    @for (data of getObjectKeys(contactData); track $index ){
+    
+      <input type="text" (input)="userInput($event, data)" />
+    }
+  </div>
 </span>
