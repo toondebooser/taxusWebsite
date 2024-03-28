@@ -44,13 +44,11 @@ export class ContactComponent implements OnInit {
     this.firebaseService.getContact().subscribe((subscription) => {
       console.log(subscription);
 
-      const checkDelivery = subscription.find(
+      const sendedMail = subscription.find(
         (obj) => obj.id === this.mailSignal.mailSig()
       );
-      if (checkDelivery) {
-        console.log(checkDelivery.delivery.state);
-      } else {
-        console.log("fail");
+      if (sendedMail && sendedMail.delivery) {
+        console.log(sendedMail.delivery.state);
       }
     });
   }
