@@ -1,7 +1,7 @@
 <span class="content">
   <div class="pageHeader">Contact page</div>
   <div class="contentSection">
-    @for (data of getObjectKeys(contactData); track $index ){
+    @for (data of getObjectKeys(contactPattern); track $index ){
       <input type="text" (input)="userInput($event, data)" />
     }
   </div>

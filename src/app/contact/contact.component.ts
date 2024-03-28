@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { PatternService } from "../services/pattern.service";
 
 @Component({
   selector: "app-contact",
@@ -8,25 +9,18 @@ import { Component } from "@angular/core";
   styleUrl: "./contact.component.css",
 })
 export class ContactComponent {
-  contactData: any = {
-    to: "",
-    from: "",
-    phone: "",
-    subject: "",
-    message: "",
-  };
+  contactPattern = inject(PatternService).contactData;
+
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
   isValidEmail(input: string): boolean {
-    // Regular expression pattern for email validation
     const emailPattern: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(input);
   }
   userInput(event: Event, dataType: string): void {
     const input = event.target as HTMLInputElement;
-    this.contactData[dataType] = input.value;
-    console.log(this.contactData);
-    console.log(this.isValidEmail(input.value))
+    this.contactPattern[dataType] = input.value;
+    console.log(this.contactPattern);
   }
 }
