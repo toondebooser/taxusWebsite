@@ -1,5 +1,7 @@
-import { Component, inject } from "@angular/core";
+import { Component, OnInit, inject } from "@angular/core";
 import { PatternService } from "../services/pattern.service";
+import { FirebaseService } from "../services/firebase.service";
+import { MailSignalService } from "../services/mail-signal.service";
 
 @Component({
   selector: "app-contact",
@@ -8,19 +10,48 @@ import { PatternService } from "../services/pattern.service";
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
-export class ContactComponent {
-  contactPattern = inject(PatternService).contactData;
+export class ContactComponent implements OnInit {
+  patternService = inject(PatternService);
+  firebaseService = inject(FirebaseService);
+  mailSignal = inject(MailSignalService);
+  contactData = this.patternService.contactData;
+  validation = this.patternService.validation;
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
-  isValidEmail(input: string): boolean {
-    const emailPattern: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(input);
+  isValid(input: string, inputType: string): boolean {
+    const regexPattern: RegExp = this.patternService.regexPatterns[inputType];
+    return regexPattern.test(input);
   }
-  userInput(event: Event, dataType: string): void {
+  userInput(event: Event, inputType: string): void {
     const input = event.target as HTMLInputElement;
-    this.contactPattern[dataType] = input.value;
-    console.log(this.contactPattern);
+    this.contactData[inputType] = input.value.replaceAll("\n", "<br>");
+    input.value === ""
+      ? (this.validation[inputType] = null)
+      : (this.validation[inputType] = this.isValid(input.value, inputType));
+  }
+  sendEmail() {
+    if (Object.values(this.validation).includes(false)) {
+      console.log("Fail");
+      return;
+    }
+    this.firebaseService.sendMail(this.contactData);
+  }
+  ngOnInit(): void {
+    console.log(this.mailSignal.mailSig());
+
+    this.firebaseService.getContact().subscribe((subscription) => {
+      console.log(subscription);
+
+      const checkDelivery = subscription.find(
+        (obj) => obj.id === this.mailSignal.mailSig()
+      );
+      if (checkDelivery) {
+        console.log(checkDelivery.delivery.state);
+      } else {
+        console.log("fail");
+      }
+    });
   }
 }

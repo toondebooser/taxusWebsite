@@ -1,0 +1,20 @@
+#contactForm {
+  width: 70%;
+}
+.content {
+  grid-template-rows: 61.35px 1fr;
+}
+.red {
+  font-size: smaller;
+  color: red;
+}
+input,
+textarea {
+  border: none;
+  background-color: lightgray;
+  font-weight: 300;
+  padding: 10px;
+  color: black;
+  border-radius: 10px;
+  height: 20px;
+}

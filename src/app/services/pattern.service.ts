@@ -5,10 +5,20 @@ import { Injectable } from "@angular/core";
 })
 export class PatternService {
   contactData: any = {
-    to: "",
-    from: "",
-    phone: "",
-    subject: "",
-    message: "",
+    email: "",
+    telefoon: "",
+    bericht: "",
+  };
+
+  validation: any = {
+    email: null,
+    telefoon: null,
+    bericht: null,
+  };
+
+  regexPatterns: any = {
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    bericht: /^[\w\W]+$/,
+    telefoon: /^(?:\+?32|0)\d{9}$/,
   };
 }
