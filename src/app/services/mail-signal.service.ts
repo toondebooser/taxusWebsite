@@ -4,5 +4,5 @@ import { Injectable, signal } from "@angular/core";
   providedIn: "root",
 })
 export class MailSignalService {
-  mailSig = signal<string>("R7vCWMcMjoV7xLgHyeRX");
+  mailSig = signal<string>("");
 }
