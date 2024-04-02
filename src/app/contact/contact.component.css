@@ -1,6 +1,6 @@
 #contactForm {
   width: 70%;
-  padding-bottom: 0;
+  padding: 0;
 }
 .content {
   grid-template-rows: 60px 1fr;

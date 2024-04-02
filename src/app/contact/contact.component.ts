@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from "@angular/core";
+import { Component, OnDestroy, OnInit, inject } from "@angular/core";
 import { PatternService } from "../services/pattern.service";
 import { FirebaseService } from "../services/firebase.service";
 import { MailSignalService } from "../services/mail-signal.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-contact",
@@ -10,12 +11,13 @@ import { MailSignalService } from "../services/mail-signal.service";
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   patternService = inject(PatternService);
   firebaseService = inject(FirebaseService);
   mailSignal = inject(MailSignalService);
   contactData = this.patternService.contactData;
   validation = this.patternService.validation;
+  firebaseSubscription: Subscription | undefined;
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
@@ -39,16 +41,23 @@ export class ContactComponent implements OnInit {
     this.firebaseService.sendMail(this.contactData);
   }
   ngOnInit(): void {
+    this.firebaseSubscription = this.firebaseService
+      .getContact()
+      .subscribe((subscription) => {
+        console.log(subscription);
 
-    this.firebaseService.getContact().subscribe((subscription) => {
-      console.log(subscription);
-
-      const sendedMail = subscription.find(
-        (obj) => obj.id === this.mailSignal.mailSig()
-      );
-      if (sendedMail && sendedMail.delivery) {
-        console.log(sendedMail.delivery.state);
-      }
-    });
+        const sendedMail = subscription.find(
+          (obj) => obj.id === this.mailSignal.mailSig()
+        );
+        if (sendedMail && sendedMail.delivery) {
+          console.log(sendedMail.delivery.state);
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    if (this.firebaseSubscription) {
+      this.firebaseSubscription.unsubscribe();
+      console.log(this.firebaseSubscription);
+    }
   }
 }
