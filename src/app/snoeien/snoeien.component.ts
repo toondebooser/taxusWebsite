@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'app-snoeien',
+  selector: "app-snoeien",
   standalone: true,
-  imports: [],
-  templateUrl: './snoeien.component.html',
-  styleUrl: './snoeien.component.css'
+  imports: [RouterLink],
+  templateUrl: "./snoeien.component.html",
+  styleUrl: "./snoeien.component.css",
 })
-export class SnoeienComponent {
-
-}
+export class SnoeienComponent {}

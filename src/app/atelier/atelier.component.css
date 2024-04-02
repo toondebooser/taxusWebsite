@@ -1,0 +1,7 @@
+.content {
+  grid-template-rows: 100px 1fr;
+  gap: 0;
+}
+.description {
+  padding: 10px;
+}
