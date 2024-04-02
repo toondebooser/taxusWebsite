@@ -1,5 +1,5 @@
 <span class="content">
-  <div class="pageHeader">Contact page</div>
+  <div class="pageHeader">Contact</div>
   <div class="contentSection" id="contactForm">
     @for (inputType of getObjectKeys(contactData); track $index ){
     @if(validation[inputType] === false){
@@ -20,6 +20,12 @@
     />
     } }
     <button (click)="sendEmail()" class="verzendButton">Verzenden</button>
-    <div>{{mailSignal.mailSig()}}</div>
+    <div>{{ mailSignal.mailSig() }}</div>
+    <div class="checklist">
+      Gratis offerte &check; <br />
+      Snelle response &check; <br />
+      Persoonlijke aanpak &check;
+    </div>
   </div>
+  <div class="loader"></div>
 </span>

@@ -1,0 +1,9 @@
+.content {
+  grid-template-rows: 61.35px 1fr;
+}
+.contentSection {
+  align-self: start;
+}
+#Headerpic {
+  justify-self: end;
+}

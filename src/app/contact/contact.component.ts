@@ -39,7 +39,6 @@ export class ContactComponent implements OnInit {
     this.firebaseService.sendMail(this.contactData);
   }
   ngOnInit(): void {
-    console.log(this.mailSignal.mailSig());
 
     this.firebaseService.getContact().subscribe((subscription) => {
       console.log(subscription);
