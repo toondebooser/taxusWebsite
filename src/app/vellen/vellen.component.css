@@ -7,10 +7,7 @@
 #Headerpic {
   justify-self: end;
 }
-.description {
-  display: grid;
-  align-content: center;
-}
+
 .smallerText {
   font-size: medium;
 }

@@ -22,6 +22,19 @@ button {
   gap: 20px;
   background-color: white;
 }
+.inlinePic {
+  width: 300px;
+}
+.inlineLink {
+  display: inline;
+  padding: 1px;
+  border-radius: 3px;
+  color: black;
+  text-decoration: underline;
+}
+.inlineLink:hover {
+  cursor: pointer;
+}
 .opgelet {
   grid-column: 1/3;
   border-radius: 20px;
@@ -71,9 +84,15 @@ a {
   border: none;
   border-radius: 10px;
 }
+
 .pictures {
   width: 100%;
   justify-self: center;
+  align-self: center;
+}
+.picLabel {
+  font-size: small;
+  font-style: italic;
 }
 .servicePic {
   border-radius: 10px;

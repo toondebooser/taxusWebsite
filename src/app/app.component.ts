@@ -2,16 +2,10 @@
 // import { CookieConsentService } from "./cookie-consent.service";
 // import { ConsentService } from "./consent.service";
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
-  OnDestroy,
   OnInit,
-  inject,
-  viewChild,
 } from "@angular/core";
 import { RouterLink, RouterOutlet, RouterLinkActive } from "@angular/router";
-import { DOMService } from "./services/dom.service";
 
 @Component({
   selector: "app-root",
