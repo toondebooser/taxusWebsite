@@ -4,6 +4,9 @@ import { AtelierComponent } from "./atelier/atelier.component";
 import { VellenComponent } from "./vellen/vellen.component";
 import { SnoeienComponent } from "./snoeien/snoeien.component";
 import { ContactComponent } from "./contact/contact.component";
+import { DeBeverComponent } from "./de-bever/de-bever.component";
+import { StandplaatsVerbeteringComponent } from "./standplaats-verbetering/standplaats-verbetering.component";
+import { VtaComponent } from "./vta/vta.component";
 
 export const routes: Routes = [
   {
@@ -31,4 +34,19 @@ export const routes: Routes = [
     component: ContactComponent,
     title: "Contact",
   },
+  {
+    path: "debever",
+    component: DeBeverComponent,
+    title: "deBever"
+  },
+  {
+    path: "standplaats",
+    component: StandplaatsVerbeteringComponent,
+    title: "standplaats"
+  },
+  {
+    path: "vta",
+    component: VtaComponent,
+    title: "vta"
+  }
 ];

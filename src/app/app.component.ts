@@ -1,9 +1,17 @@
 // import { setCookie, getCookie } from "./cookieConsent";
 // import { CookieConsentService } from "./cookie-consent.service";
 // import { ConsentService } from "./consent.service";
-import { Component, OnDestroy, OnInit, inject } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  inject,
+  viewChild,
+} from "@angular/core";
 import { RouterLink, RouterOutlet, RouterLinkActive } from "@angular/router";
-import { Subscription } from "rxjs";
+import { DOMService } from "./services/dom.service";
 
 @Component({
   selector: "app-root",
@@ -16,14 +24,13 @@ export class AppComponent implements OnInit {
   // cookieConsentService = inject(CookieConsentService);
   // consentService = inject(ConsentService);
   // serviceSubscription: Subscription | undefined;
-
   ngOnInit(): void {
     // this.serviceSubscription = this.cookieConsentService
     //   .consentChanged()
     //   .subscribe((state) => {
     //     console.log(state);
-
     //     this.consentService.consentSig.set(state);
     //   });
     // this.cookieConsentService.checkConsent();
-  }}
+  }
+}

@@ -11,3 +11,6 @@
   display: grid;
   align-content: center;
 }
+.smallerText {
+  font-size: medium;
+}

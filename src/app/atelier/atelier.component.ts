@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { DOMService } from '../services/dom.service';
 
 @Component({
   selector: 'app-atelier',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './atelier.component.html',
   styleUrl: './atelier.component.css'
 })
-export class AtelierComponent {
+export class AtelierComponent implements OnInit {
+  domService = inject(DOMService);
 
+ngOnInit(): void {
+  this.domService.scrollElementToTop('.content')
+}
 }

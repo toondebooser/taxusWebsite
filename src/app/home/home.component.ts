@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { DOMService } from '../services/dom.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,5 +10,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  domService = inject(DOMService);
 
+ngOnInit(): void {
+  this.domService.scrollElementToTop('.content')
+}
 }

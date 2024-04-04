@@ -1,15 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { DOMService } from '../services/dom.service';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-vellen',
+  selector: 'app-de-bever',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './vellen.component.html',
-  styleUrl: './vellen.component.css'
+  imports: [],
+  templateUrl: './de-bever.component.html',
+  styleUrl: './de-bever.component.css'
 })
-export class VellenComponent {
+export class DeBeverComponent {
   domService = inject(DOMService);
 
 ngOnInit(): void {
