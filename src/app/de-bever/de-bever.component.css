@@ -1,0 +1,13 @@
+#deBeverLogo {
+  margin-top: 10px;
+  width: 100px;
+  justify-self: start;
+}
+.pageHeader {
+  align-self: end;
+  justify-self: end;
+}
+#deBeverHeader {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+}
