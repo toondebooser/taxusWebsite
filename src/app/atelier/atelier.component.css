@@ -2,9 +2,20 @@
   grid-template-rows: 100px 1fr;
   gap: 0;
 }
+.inlineLink {
+  font-weight: 400;
+}
+#deBeverLogo {
+  width: 25px;
+}
+#taxusLogo {
+  width: 100px;
+  justify-self: center;
+}
 
 .description {
   padding: 10px;
+  align-self: center;
 }
 .disclaimer {
   grid-column: 1/2;
@@ -12,5 +23,16 @@
 @media (min-width: 800px) {
   .disclaimer {
     grid-column: 1/3;
+  }
+  #dryHut {
+    grid-column: 2/3;
+    align-self: center;
+  }
+  #secondDescription {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  #taxusLogo {
+    width: 200px;
   }
 }

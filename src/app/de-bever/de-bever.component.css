@@ -3,6 +3,9 @@
   width: 100px;
   justify-self: start;
 }
+#oplatPic {
+  align-self: center;
+}
 .pageHeader {
   align-self: end;
   justify-self: end;
@@ -10,4 +13,28 @@
 #deBeverHeader {
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
+}
+#deBeverFooter {
+  grid-template-columns: repeat(2, 1fr);
+}
+#deBeverLogoFooter {
+  width: 80px;
+  margin-bottom: 10px;
+}
+#gegevens {
+  font-size: small;
+  text-align: end;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 800px) {
+  #edgePic {
+    grid-column: 2/3;
+  }
+  #edgeDescription {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+  }
 }

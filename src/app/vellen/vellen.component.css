@@ -8,9 +8,10 @@
   justify-self: end;
 }
 
+
 .smallerText {
   font-size: medium;
 }
-.servicePic {
+#selfShot {
   align-self: center;
 }
