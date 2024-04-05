@@ -1,3 +1,8 @@
 .disclaimer {
   grid-column: 1/1;
 }
+@media (min-width: 800px) {
+  .disclaimer {
+    grid-column: 1/3;
+  }
+}
