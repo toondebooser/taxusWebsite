@@ -2,6 +2,15 @@
   grid-template-rows: 100px 1fr;
   gap: 0;
 }
+
 .description {
   padding: 10px;
+}
+.disclaimer {
+  grid-column: 1/2;
+}
+@media (min-width: 800px) {
+  .disclaimer {
+    grid-column: 1/3;
+  }
 }

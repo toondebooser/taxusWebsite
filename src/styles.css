@@ -13,6 +13,9 @@ button {
   border: none;
   padding: 5px;
 }
+button:hover {
+  cursor: pointer;
+}
 .content {
   height: 100%;
   display: grid;
@@ -23,6 +26,7 @@ button {
   background-color: white;
 }
 .inlinePic {
+  border-radius: 10px;
   width: 300px;
 }
 .inlineLink {
@@ -43,8 +47,12 @@ button {
   border: 1px red solid;
   font-size: medium;
 }
+.disclaimer {
+  grid-column: 1/3;
+  justify-self: center;
+}
 .whiteSpace {
-  height: 50px;
+  height: 1px;
   width: 100%;
 }
 .contentSection {

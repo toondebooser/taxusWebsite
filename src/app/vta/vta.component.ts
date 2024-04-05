@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { DOMService } from '../services/dom.service';
 
 @Component({
@@ -8,10 +8,10 @@ import { DOMService } from '../services/dom.service';
   templateUrl: './vta.component.html',
   styleUrl: './vta.component.css'
 })
-export class VtaComponent {
+export class VtaComponent implements AfterViewInit {
   domService = inject(DOMService);
 
-ngOnInit(): void {
-  this.domService.scrollElementToTop('.content')
-}
+  ngAfterViewInit(): void {
+    this.domService.scrollElementToTop('.content')
+  }
 }

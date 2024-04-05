@@ -1,17 +1,19 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+
 import { DOMService } from '../services/dom.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-atelier',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './atelier.component.html',
   styleUrl: './atelier.component.css'
 })
-export class AtelierComponent implements OnInit {
+export class AtelierComponent implements AfterViewInit {
   domService = inject(DOMService);
 
-ngOnInit(): void {
-  this.domService.scrollElementToTop('.content')
-}
+  ngAfterViewInit(): void {
+    this.domService.scrollElementToTop('.content')
+  }
 }

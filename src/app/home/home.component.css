@@ -4,6 +4,9 @@
   border-bottom: 1px solid grey;
   background-color: white;
 }
+.disclaimer {
+  grid-column: 1/1;
+}
 .navButton {
   font-family: "Caveat", cursive;
 }
@@ -30,6 +33,9 @@
 }
 
 @media (min-width: 800px) {
+  .disclaimer{
+    grid-column: 1/4;
+  }
   .content {
     grid-template-columns: repeat(3, 1fr);
     height: 100%;

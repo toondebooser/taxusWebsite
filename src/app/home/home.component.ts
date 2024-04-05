@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { DOMService } from '../services/dom.service';
 import { RouterLink } from '@angular/router';
 
@@ -9,10 +9,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   domService = inject(DOMService);
 
-ngOnInit(): void {
-  this.domService.scrollElementToTop('.content')
-}
+  ngAfterViewInit(): void {
+    this.domService.scrollElementToTop('.content')
+  }
 }
