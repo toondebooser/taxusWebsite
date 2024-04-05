@@ -1,4 +1,13 @@
-import { Component, OnDestroy, OnInit, inject } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  inject,
+  viewChild,
+} from "@angular/core";
 import { PatternService } from "../services/pattern.service";
 import { FirebaseService } from "../services/firebase.service";
 import { MailSignalService } from "../services/mail-signal.service";
@@ -11,13 +20,15 @@ import { Subscription } from "rxjs";
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
   patternService = inject(PatternService);
   firebaseService = inject(FirebaseService);
-  mailSignal = inject(MailSignalService);
+  mailService = inject(MailSignalService);
   contactData = this.patternService.contactData;
   validation = this.patternService.validation;
   firebaseSubscription: Subscription | undefined;
+  @ViewChild("loader") loader!: ElementRef;
+  @ViewChild("email") email!: ElementRef;
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
@@ -40,16 +51,19 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
     this.firebaseService.sendMail(this.contactData);
   }
+  ngAfterViewInit(): void {
+    console.log(this.email);
+  }
   ngOnInit(): void {
     this.firebaseSubscription = this.firebaseService
       .getContact()
       .subscribe((subscription) => {
-        console.log(subscription);
-
         const sendedMail = subscription.find(
-          (obj) => obj.id === this.mailSignal.mailSig()
+          (obj) => obj.id === this.mailService.mailSig()
         );
         if (sendedMail && sendedMail.delivery) {
+          this.loader.nativeElement.style.display = "inline";
+          this.mailService.mailState.set(sendedMail.delivery.state);
           console.log(sendedMail.delivery.state);
         }
       });

@@ -6,6 +6,7 @@
     <div class="red">* {{ inputType }} Ongeldig</div>
     } @if(inputType === "bericht"){
     <textarea
+      [attr.#{{inputType}}]
       placeholder="{{ inputType }}"
       id="{{ inputType }}"
       (input)="userInput($event, inputType)"
@@ -20,12 +21,15 @@
     />
     } }
     <button (click)="sendEmail()" class="verzendButton">Verzenden</button>
-    <div>{{ mailSignal.mailSig() }}</div>
     <div class="checklist">
       Gratis offerte &check; <br />
       Snelle response &check; <br />
       Persoonlijke aanpak &check;
     </div>
   </div>
-  <div class="loader"></div>
+
+  <div #loader class="loaderWrapper">
+    <div class="loader"></div>
+    <p>{{mailService.mailState()}}</p>
+  </div>
 </span>
