@@ -35,7 +35,7 @@ nav {
   margin-top: -0.7px;
 }
 main {
-  height: calc(100vh - 164.82px);
+  height: calc(100svh - 164.82px);
   overflow-y: auto;
 }
 footer {
