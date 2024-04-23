@@ -8,6 +8,7 @@
     
     @if(inputType === "bericht"){
     <textarea
+      #input
       placeholder="{{ inputType }}"
       id="{{ inputType }}"
       (input)="userInput($event, inputType)"
@@ -15,6 +16,7 @@
     ></textarea>
     } @else {
     <input
+      #input
       placeholder="{{ inputType }}"
       id="{{ inputType }}"
       type="text"

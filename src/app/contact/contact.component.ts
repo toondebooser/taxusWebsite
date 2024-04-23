@@ -4,9 +4,10 @@ import {
   ElementRef,
   OnDestroy,
   OnInit,
+  QueryList,
   ViewChild,
   inject,
-  viewChild
+  ViewChildren,
 } from "@angular/core";
 import { PatternService } from "../services/pattern.service";
 import { FirebaseService } from "../services/firebase.service";
@@ -21,7 +22,7 @@ import { NgIf } from "@angular/common";
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
-export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ContactComponent implements OnInit, OnDestroy {
   patternService = inject(PatternService);
   firebaseService = inject(FirebaseService);
   mailService = inject(MailSignalService);
@@ -29,7 +30,7 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
   validation = this.patternService.validation;
   firebaseSubscription: Subscription | undefined;
   @ViewChild("loader") loader!: ElementRef;
-  @ViewChild("email") email!: ElementRef;
+  @ViewChildren("input") inputs!: QueryList<ElementRef>;
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
@@ -44,10 +45,9 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
     input.value === ""
       ? (this.validation[inputType] = null)
       : (this.validation[inputType] = this.isValid(input.value, inputType));
-  Object.values(this.validation).every(val => val === true)? this.patternService.valid = true : this.patternService.valid=false
-     
-  
-      
+    Object.values(this.validation).every((val) => val === true)
+      ? (this.patternService.valid = true)
+      : (this.patternService.valid = false);
   }
   sendEmail() {
     if (Object.values(this.validation).includes(false)) {
@@ -56,10 +56,16 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.firebaseService.sendMail(this.contactData);
   }
-  ngAfterViewInit(): void {
-    console.log(this.email);
+  resetMailState(element: any, mailState: any){
+element.style.display = "none";
+mailState.set('');
+this.mailService.mailSig.set('');
+this.inputs.forEach(input => input.nativeElement.value = '');
+this.patternService.valid = false;
   }
+
   ngOnInit(): void {
+    
     this.firebaseSubscription = this.firebaseService
       .getContact()
       .subscribe((subscription) => {
@@ -67,16 +73,17 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
           (obj) => obj.id === this.mailService.mailSig()
         );
         if (sendedMail && sendedMail.delivery) {
-          this.loader.nativeElement.style.display = "inline";
-          this.mailService.mailState.set(sendedMail.delivery.state);
-          console.log(sendedMail.delivery.state);
+         let element =  this.loader.nativeElement
+          let mailState = this.mailService.mailState;
+          element.style.display = "inline";
+          mailState.set(sendedMail.delivery.state);
+          if (sendedMail.delivery.state == "SUCCESS") setTimeout(()=>this.resetMailState(element,mailState),500);
         }
       });
   }
   ngOnDestroy(): void {
     if (this.firebaseSubscription) {
       this.firebaseSubscription.unsubscribe();
-      console.log(this.firebaseSubscription);
     }
   }
 }
