@@ -4,9 +4,10 @@
     @for (inputType of getObjectKeys(contactData); track $index ){
     @if(validation[inputType] === false){
     <div class="red">* {{ inputType }} Ongeldig</div>
-    } @if(inputType === "bericht"){
+    }  
+    
+    @if(inputType === "bericht"){
     <textarea
-      [attr.#{{inputType}}]
       placeholder="{{ inputType }}"
       id="{{ inputType }}"
       (input)="userInput($event, inputType)"
@@ -19,8 +20,10 @@
       type="text"
       (input)="userInput($event, inputType)"
     />
-    } }
-    <button (click)="sendEmail()" class="verzendButton">Verzenden</button>
+    }}
+      <button *ngIf="patternService.valid ==true; else elseBlock" (click)="sendEmail()" class="verzendButton">Verzenden</button>
+      <ng-template  #elseBlock><button class="notActive">Verzenden</button></ng-template>
+
     <div class="checklist">
       Gratis offerte &check; <br />
       Snelle response &check; <br />

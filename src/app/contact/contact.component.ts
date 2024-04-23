@@ -6,17 +6,18 @@ import {
   OnInit,
   ViewChild,
   inject,
-  viewChild,
+  viewChild
 } from "@angular/core";
 import { PatternService } from "../services/pattern.service";
 import { FirebaseService } from "../services/firebase.service";
 import { MailSignalService } from "../services/mail-signal.service";
 import { Subscription } from "rxjs";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: "app-contact",
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
@@ -43,6 +44,10 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit {
     input.value === ""
       ? (this.validation[inputType] = null)
       : (this.validation[inputType] = this.isValid(input.value, inputType));
+  Object.values(this.validation).every(val => val === true)? this.patternService.valid = true : this.patternService.valid=false
+     
+  
+      
   }
   sendEmail() {
     if (Object.values(this.validation).includes(false)) {

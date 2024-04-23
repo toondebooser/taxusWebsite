@@ -26,6 +26,9 @@ textarea {
   border-radius: 10px;
   height: 20px;
 }
+.notActive{
+  opacity: 50%;
+}
 .loaderWrapper {
   display: none;
   position: absolute;
@@ -61,7 +64,7 @@ textarea {
     grid-template-columns: 1fr;
     width: 35%;
   }
-  .verzendButton {
+  .verzendButton,.notActive {
     width: 200px;
     justify-self: center;
   }

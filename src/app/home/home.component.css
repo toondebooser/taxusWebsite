@@ -33,6 +33,10 @@
 }
 
 @media (min-width: 800px) {
+  .homePictures{
+    margin-top: 100px;
+  }
+
   .disclaimer{
     grid-column: 1/4;
   }
@@ -40,6 +44,7 @@
     grid-template-columns: repeat(3, 1fr);
     height: 100%;
   }
+
   .pageHeader {
     grid-column: 1/4;
     font-size: xx-large;

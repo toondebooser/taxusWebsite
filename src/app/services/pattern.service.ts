@@ -4,6 +4,9 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class PatternService {
+  
+  valid = false;
+
   contactData: any = {
     email: "",
     telefoon: "",

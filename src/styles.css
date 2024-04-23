@@ -76,8 +76,8 @@ a {
   color: inherit;
 }
 .pageHeader {
-  font-size: xx-large;
-  font-family: "Caveat", cursive;
+  font-size:x-large;
+  font-weight: 400;
   margin: 10px 0px 10px 0px;
   text-align: center;
 }
@@ -113,8 +113,8 @@ hr {
   width: 80%;
 }
 .serviceTitle {
-  font-weight: 600;
-  font-size: x-large;
+  font-weight: 500;
+  font-size: large;
 }
 .vet {
   justify-self: start;
@@ -141,7 +141,15 @@ hr {
   width: 50%;
   background-color: rgba(0, 0, 0, 0.9);
 }
+@media (max-width: 800px){
+  #topCard{
+    margin-top: 30px;
+  }
+}
 @media (min-width: 800px) {
+  .line{
+    display: none;
+  }
   .alertText {
     font-size: larger;
     margin: 10px 50px;

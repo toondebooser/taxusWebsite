@@ -29,6 +29,9 @@
   margin: 0;
 }
 @media (min-width: 800px) {
+  .desc{
+    align-self: center;
+  }
   #edgePic {
     grid-column: 2/3;
   }
