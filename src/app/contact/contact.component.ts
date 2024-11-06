@@ -58,6 +58,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.firebaseService.sendMail(this.contactData);
     this.loader.nativeElement.style.display = 'grid';
   }
+  checkAnyFieldNotEmpty(obj: any): boolean {
+    return Object.values(obj).some(value => value !== "");
+  }
   resetMailState(){
     Object.keys(this.validation).forEach(key => {
       this.validation[key] = null;
@@ -72,7 +75,6 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    
     this.firebaseSubscription = this.firebaseService
       .getContact()
       .subscribe((subscription) => {

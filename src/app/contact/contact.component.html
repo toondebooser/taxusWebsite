@@ -13,14 +13,17 @@
       id="{{ inputType }}"
       (input)="userInput($event, inputType)"
       style="height: 100px"
-    ></textarea>
-    } @else {
+    >{{contactData[inputType]}}</textarea>
+    } 
+    
+    @else {
     <input
       #input
       placeholder="{{ inputType + ' *' }}"
       id="{{ inputType }}"
       type="text"
       (input)="userInput($event, inputType)"
+      value="{{contactData[inputType]}}"
     />
     }}
     @if (patternService.valid === true){
