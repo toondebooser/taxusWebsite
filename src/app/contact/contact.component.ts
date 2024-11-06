@@ -56,7 +56,7 @@ export class ContactComponent implements OnInit, OnDestroy {
       return;
     }
     this.firebaseService.sendMail(this.contactData);
-    this.loader.nativeElement.style.display = 'inline';
+    this.loader.nativeElement.style.display = 'grid';
   }
   resetMailState(){
     Object.keys(this.validation).forEach(key => {

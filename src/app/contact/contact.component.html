@@ -9,7 +9,7 @@
     @if(inputType === "bericht"){
     <textarea
       #input
-      placeholder="{{ inputType }}"
+      placeholder="{{ inputType + ' *' }}"
       id="{{ inputType }}"
       (input)="userInput($event, inputType)"
       style="height: 100px"
@@ -17,7 +17,7 @@
     } @else {
     <input
       #input
-      placeholder="{{ inputType }}"
+      placeholder="{{ inputType + ' *' }}"
       id="{{ inputType }}"
       type="text"
       (input)="userInput($event, inputType)"
@@ -31,14 +31,16 @@
     }
 
     <div class="checklist">
+
       Gratis offerte &check; <br />
       Snelle respons &check; <br />
-      Persoonlijke aanpak &check;
+      Persoonlijke aanpak &check; <br>
+
     </div>
   </div>
 
   <div #loader class="loaderWrapper">
     <div class="loader"></div>
-    <p>{{mailService.mailState()}}</p>
+    <p calss="mailStateString">{{mailService.mailState()}}</p>
   </div>
 </span>

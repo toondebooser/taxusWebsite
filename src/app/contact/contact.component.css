@@ -3,6 +3,7 @@
   padding: 0;
 }
 .verzendButton {
+  display: inline;
   width: 100%;
 }
 .content {
@@ -27,10 +28,11 @@ textarea {
   height: 20px;
 }
 .notActive{
-  opacity: 50%;
+  display: none;
 }
 .loaderWrapper {
   display: none;
+  justify-items: center;
   position: absolute;
 }
 .loader {
@@ -54,6 +56,7 @@ textarea {
 .loader:after {
   --s: -1;
 }
+
 @keyframes l2 {
   100% {
     transform: rotate(calc(var(--s, 1) * 1turn));
