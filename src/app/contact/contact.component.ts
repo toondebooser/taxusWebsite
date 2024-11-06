@@ -8,6 +8,7 @@ import {
   ViewChild,
   inject,
   ViewChildren,
+  Signal,
 } from "@angular/core";
 import { PatternService } from "../services/pattern.service";
 import { FirebaseService } from "../services/firebase.service";
@@ -39,7 +40,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     const regexPattern: RegExp = this.patternService.regexPatterns[inputType];
     return regexPattern.test(input);
   }
-  userInput(event: Event, inputType: string): void {
+  userInput(event: Event, inputType: string): void { 
+    
     const input = event.target as HTMLInputElement;
     this.contactData[inputType] = input.value.replaceAll("\n", "<br>");
     input.value === ""
@@ -51,17 +53,22 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
   sendEmail() {
     if (Object.values(this.validation).includes(false)) {
-      console.log("Fail");
       return;
     }
     this.firebaseService.sendMail(this.contactData);
+    this.loader.nativeElement.style.display = 'inline';
   }
-  resetMailState(element: any, mailState: any){
-element.style.display = "none";
-mailState.set('');
-this.mailService.mailSig.set('');
-this.inputs.forEach(input => input.nativeElement.value = '');
-this.patternService.valid = false;
+  resetMailState(){
+    Object.keys(this.validation).forEach(key => {
+      this.validation[key] = null;
+    });
+    Object.keys(this.contactData).forEach(key => {
+      this.contactData[key] = '';
+    });
+  this.mailService.mailSig.set('');
+  this.patternService.valid = false;
+  
+
   }
 
   ngOnInit(): void {
@@ -73,11 +80,14 @@ this.patternService.valid = false;
           (obj) => obj.id === this.mailService.mailSig()
         );
         if (sendedMail && sendedMail.delivery) {
-         let element =  this.loader.nativeElement
           let mailState = this.mailService.mailState;
-          element.style.display = "inline";
           mailState.set(sendedMail.delivery.state);
-          if (sendedMail.delivery.state == "SUCCESS") setTimeout(()=>this.resetMailState(element,mailState),500);
+          if (sendedMail.delivery.state == "SUCCESS") setTimeout(()=>{
+            this.loader.nativeElement.style.display = "none";
+            this.mailService.mailState.set('');
+            this.inputs.forEach(input => input.nativeElement.value = '');
+            this.resetMailState();
+          },500);
         }
       });
   }

@@ -1,7 +1,9 @@
 .disclaimer {
   grid-column: 1/1;
 }
-
+.content {
+  grid-template-rows: 100px 1fr;
+}
 @media (min-width: 800px) {
   .picLabel {
     grid-column: 1/3;

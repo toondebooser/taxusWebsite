@@ -23,12 +23,16 @@
       (input)="userInput($event, inputType)"
     />
     }}
-      <button *ngIf="patternService.valid ==true; else elseBlock" (click)="sendEmail()" class="verzendButton">Verzenden</button>
-      <ng-template  #elseBlock><button class="notActive">Verzenden</button></ng-template>
+    @if (patternService.valid === true){
+      <button (click)="sendEmail()" class="verzendButton">Verzenden</button>
+    }
+    @else {
+      <button class="notActive">Verzenden</button>
+    }
 
     <div class="checklist">
       Gratis offerte &check; <br />
-      Snelle response &check; <br />
+      Snelle respons &check; <br />
       Persoonlijke aanpak &check;
     </div>
   </div>

@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { DOMService } from '../services/dom.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-vta',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './vta.component.html',
   styleUrl: './vta.component.css'
 })
