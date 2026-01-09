@@ -63,7 +63,7 @@ footer {
 }
 @media (max-width: 340px) {
   main {
-    height: calc(100vh - 143.28px);
+    height: calc(100svh - 143.28px);
   }
   img {
     width: 70px;
