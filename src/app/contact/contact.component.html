@@ -45,5 +45,13 @@
   <div #loader class="loaderWrapper">
     <div class="loader"></div>
     <p calss="mailStateString">{{mailService.mailState()}}</p>
+    @if(mailService.mailState() == "ERROR"){
+      <div class="error">
+        <img class="errorIcon" src="assets/icons/icon-error-24-1-256.png" alt=""> 
+        <p class="errorMessage">Onze excuses er is een probleem met het versturen van uw bericht. Stuur ons een mailtje, sms of bel even zodat wij u meteen kunnen verder helpen.</p> <br>
+        <button (click)="resetContactSheet()">Sluiten</button>
+      </div>
+    }
+    
   </div>
 </span>

@@ -7,8 +7,26 @@ body {
   margin: 0px;
   font-weight: 300;
 }
-
+.errorMessage{
+  margin: 0;
+}
+.error{
+  justify-items: center;
+  border: 1px solid black;
+  display: grid;
+  padding: 10px;
+  border-radius: 10px;
+  color: red;
+  max-width: 200px;
+  font-weight: 400;
+  background-color:white;
+}
+.errorIcon{
+  height: 50px;
+}
 button {
+  display: grid;
+  align-items: center;
   background-color: black;
   color: white;
   border-radius: 10px;

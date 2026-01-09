@@ -19,11 +19,11 @@ import { NgIf } from "@angular/common";
 @Component({
   selector: "app-contact",
   standalone: true,
-  imports: [NgIf],
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.css",
 })
 export class ContactComponent implements OnInit, OnDestroy {
+  
   patternService = inject(PatternService);
   firebaseService = inject(FirebaseService);
   mailService = inject(MailSignalService);
@@ -73,11 +73,17 @@ export class ContactComponent implements OnInit, OnDestroy {
   
 
   }
+  resetContactSheet(){
+    this.loader.nativeElement.style.display = "none";
+    this.mailService.mailState.set('');
+    this.inputs.forEach(input => input.nativeElement.value = '');
+    this.resetMailState();
+  }
 
   ngOnInit(): void {
     this.firebaseSubscription = this.firebaseService
       .getContact()
-      .subscribe((subscription) => {
+      .subscribe((subscription) => {        
         const sendedMail = subscription.find(
           (obj) => obj.id === this.mailService.mailSig()
         );
@@ -85,10 +91,7 @@ export class ContactComponent implements OnInit, OnDestroy {
           let mailState = this.mailService.mailState;
           mailState.set(sendedMail.delivery.state);
           if (sendedMail.delivery.state == "SUCCESS") setTimeout(()=>{
-            this.loader.nativeElement.style.display = "none";
-            this.mailService.mailState.set('');
-            this.inputs.forEach(input => input.nativeElement.value = '');
-            this.resetMailState();
+            this.resetContactSheet()
           },500);
         }
       });

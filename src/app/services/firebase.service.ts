@@ -5,8 +5,6 @@ import {
   addDoc,
   collection,
   collectionData,
-  doc,
-  getDoc,
 } from "@angular/fire/firestore";
 import { Observable, from, map } from "rxjs";
 import { MailSignalService } from "./mail-signal.service";
